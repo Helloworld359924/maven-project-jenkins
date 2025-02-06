@@ -1,7 +1,5 @@
 pipeline{
-    agent {
-        label 'dev-server'
-    }
+    agent any
 
     tools {
         maven 'test-maven'
@@ -11,7 +9,7 @@ pipeline{
 
         stage('build stage'){
             steps{
-                sh 'mvn -B -DskipTests clean package'
+                sh 'mvn clean package'
             }
             post {
               success {
